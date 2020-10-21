@@ -2,7 +2,7 @@
 
 Today, we'll build an over-the-top "like" button, similar to the one found on Twitter.com:
 
-![Twitter like button](./__lecture/assets/demo.gif)
+![Twitter like button](__lecture/assets/demo.gif)
 
 While it all happens quickly, there's actually quite a lot going on here! Specifically, we will need 3 distinct animations:
 
