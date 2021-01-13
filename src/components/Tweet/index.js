@@ -4,14 +4,12 @@ import styled from "styled-components";
 import Header from "./Header";
 import ActionBar from "./ActionBar";
 
-const Tweet = ({
-  displayName,
-  username,
-  avatarSrc,
-  tweetContents,
-  isRetweetedByCurrentUser,
-  isLikedByCurrentUser,
-}) => {
+import { TweetContext } from "../TweetContext";
+
+
+const Tweet = () => {
+  const {tweetContents, displayName, username, avatarSrc, isRetweetedByCurrentUser, isLikedByCurrentUser} = useContext(TweetContext);
+
   return (
     <Wrapper>
       <Header
