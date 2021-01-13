@@ -10,13 +10,14 @@ const ActionBar = () => {
 
   const { isRetweetedByCurrentUser, 
           isLiked, 
-          handleToggleLike} =  useContext(TweetContext);
+          handleToggleLike, 
+          handleToggleRetweet} =  useContext(TweetContext);
   return (
     <Wrapper>
       <Action color="rgb(27, 149, 224)" size={40}>
         <TweetActionIcon kind="reply" />
       </Action>
-      <Action color="rgb(23, 191, 99)" size={40}>
+      <Action color="rgb(23, 191, 99)" size={40} onClick={handleToggleRetweet}>
         <TweetActionIcon
           kind="retweet"
           color={isRetweetedByCurrentUser ? "rgb(23, 191, 99)" : undefined}
