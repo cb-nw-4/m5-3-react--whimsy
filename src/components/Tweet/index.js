@@ -13,6 +13,7 @@ const Tweet = () => {
     <Wrapper>
       <Header />
       <TweetContents>{data.tweetContents}</TweetContents>
+      <Timestamp>{data.date}</Timestamp>
       <Divider />
       <ActionBar />
       <Divider />
