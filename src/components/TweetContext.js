@@ -15,6 +15,28 @@ export const TweetProvider = ({ children }) => {
     const [isLiked, setIsLiked] = useState(false);
     const [isRetweeted, setIsRetweeted] = useState(false);
 
+    const handleToggleLike = () => {
+        setIsLiked(!isLiked);
+        
+        if (isLiked === true) {
+            setNumOfLikes(numOfLikes - 1);
+        }
+        else if (isLiked === false) {
+            setNumOfLikes(numOfLikes + 1);
+        }
+    }
+
+    const handleToggleRetweet = () => {
+        setIsRetweeted(!isRetweeted);
+
+        if (isRetweeted === true) {
+            setNumOfRetweets(numOfRetweets - 1);
+        }
+        else if (isRetweeted === false) {
+            setNumOfRetweets(numOfRetweets + 1);
+        }
+    }
+
     return (
         <TweetContext.Provider 
             value={{ 
@@ -25,8 +47,10 @@ export const TweetProvider = ({ children }) => {
                 isRetweetedByCurrentUser: isRetweeted,
                 isLikedByCurrentUser: isLiked,
                 date: dateTime,
-                numOfLikes: numOfLikes,
-                numOfRetweets: numOfRetweets
+                numOfLikes,
+                numOfRetweets,
+                handleToggleLike,
+                handleToggleRetweet
             }}
         >
         {children}
