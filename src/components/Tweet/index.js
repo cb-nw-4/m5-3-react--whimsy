@@ -7,12 +7,13 @@ import { TweetContext } from '../TweetContext';
 
 const Tweet = () => {
   // Use content
-  const { tweetContents } = useContext(TweetContext);
+  const { tweetContents, now } = useContext(TweetContext);
 
   return (
     <Wrapper>
       <Header />
       <TweetContents>{tweetContents}</TweetContents>
+      <Timestamp>{now}</Timestamp>
       <Divider />
       <ActionBar />
       <Divider />
