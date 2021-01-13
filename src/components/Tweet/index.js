@@ -5,8 +5,7 @@ import Header from "./Header";
 import ActionBar from "./ActionBar";
 
 const Tweet = () => {
-
-  const {tweetContents, displayName, username, avatarSrc, isRetweetedByCurrentUser, isLikedByCurrentUser} = useContext(TweetContext)
+  const {tweetContents, displayName, username, avatarSrc, isRetweetedByCurrentUser, isLikedByCurrentUser, date} = useContext(TweetContext)
   return (
     <Wrapper>
       <Header
@@ -15,6 +14,7 @@ const Tweet = () => {
         avatarSrc={avatarSrc}
       />
       <TweetContents>{tweetContents}</TweetContents>
+      <Timestamp>{date}</Timestamp>
       <Divider />
       <ActionBar
         isRetweetedByCurrentUser={isRetweetedByCurrentUser}
