@@ -8,11 +8,17 @@ import { TweetContext } from "../TweetContext";
 const Tweet = () => {
   const {
     tweetContents,
+    date
   } = useContext(TweetContext);
   return (
     <Wrapper>
       <Header />
-      <TweetContents>{tweetContents}</TweetContents>
+      <TweetContents>
+        {tweetContents}
+      </TweetContents>
+      <Timestamp>
+        {date}
+      </Timestamp>
       <Divider />
       <ActionBar />
       <Divider />
