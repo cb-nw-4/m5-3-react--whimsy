@@ -14,6 +14,12 @@ export const TweetProvider =({children}) =>{
     const [isLiked, setIsLiked] = useState(false);
     const [isRetweeted, setIsRetweeted] = useState(false);
 
+    const handleToggleLike = () =>{
+        setIsLiked(!isLiked)
+        !isLiked ? setNumofLikes(numOfLikes + 1) : setNumofLikes(numOfLikes -1);
+
+    }
+
     const data = {
         displayName: "Carmen Sandiego ✨",
         username: "carmen-sandiego",
@@ -28,14 +34,15 @@ export const TweetProvider =({children}) =>{
     return <TweetContext.Provider 
                 value={{tweetContents: data.tweetContents,
                 displayName: data.displayName,
-                username: data.displayName,
+                username: data.username,
                 avatarSrc: data.avatarSrc,
                 isRetweetedByCurrentUser: data.isRetweetedByCurrentUser,
                 isLikedByCurrentUser: data.isLikedByCurrentUser,
                 date,
                 numOfLikes,
-                numOfRetweets
-                    
+                numOfRetweets,
+                isLiked, 
+                handleToggleLike
                 }}
     >
         {children}

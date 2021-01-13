@@ -2,8 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 import Tweet from "./Tweet";
-
-
 import { TweetProvider } from "./TweetContext";
 
 const App = () => {
