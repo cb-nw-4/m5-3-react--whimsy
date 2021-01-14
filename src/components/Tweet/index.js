@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Header from "./Header";
 import ActionBar from "./ActionBar";
 import { TweetContext } from './TweetContext';
+import moment from "moment";
 
 const Tweet = ({
   // displayName,
@@ -20,10 +21,11 @@ const Tweet = ({
     avatarSrc,
     isRetweetedByCurrentUser,
     isLikedByCurrentUser,
+    date,
   } = React.useContext(
     TweetContext
   );
-  
+
   return (
     <Wrapper>
       <Header
@@ -32,6 +34,7 @@ const Tweet = ({
         avatarSrc={avatarSrc}
       />
       <TweetContents>{tweetContents}</TweetContents>
+      <Timestamp>{moment().format('MMM Do YYYY, h:mm:ss a')}</Timestamp>
       <Divider />
       <ActionBar
         isRetweetedByCurrentUser={isRetweetedByCurrentUser}
