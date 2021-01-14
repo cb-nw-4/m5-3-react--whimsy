@@ -7,25 +7,9 @@ import { TweetContext } from './Tweet/TweetContext';
 import avatar from "../assets/carmen-sandiego.png";
 
 const App = () => {
-  // const {
-  //   tweetContents,
-  //   displayName,
-  //   username,
-  //   avatarSrc,
-  //   isRetweetedByCurrentUser,
-  //   isLikedByCurrentUser,
-  // } = React.useContext(
-  //   TweetContext
-  // );
   return (
     <Wrapper>
       <Tweet
-        // tweetContents
-        // displayName
-        // username
-        // avatarSrc
-        // isRetweetedByCurrentUser
-        // isLikedByCurrentUser
       />
     </Wrapper>
   );

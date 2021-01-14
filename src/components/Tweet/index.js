@@ -5,6 +5,7 @@ import Header from "./Header";
 import ActionBar from "./ActionBar";
 import { TweetContext } from './TweetContext';
 import moment from "moment";
+import Stat from './Stat';
 
 const Tweet = ({
   // displayName,
@@ -39,13 +40,11 @@ const Tweet = ({
       <TweetContents>{tweetContents}</TweetContents>
       <Timestamp>{moment().format('MMM Do YYYY, h:mm:ss a')}</Timestamp>
       <Divider />
-      <Stats>
-        <span><strong>{numOfRetweets}</strong> Retweets</span> <Span><strong>{numOfLikes}</strong> Likes</Span>
-      </Stats>
+      <Stat/>
       <Divider />
       <ActionBar
-        isRetweetedByCurrentUser={isLiked}
-        isLikedByCurrentUser={isRetweeted}
+        isRetweetedByCurrentUser={isRetweeted}
+        isLikedByCurrentUser={isLiked}
       />
       <Divider />
     </Wrapper>
@@ -77,14 +76,14 @@ const Divider = styled.div`
   background: rgb(230, 236, 240);
 `;
 
-const Stats = styled.div`
-  display: flex;
-  align-items: center;
-  height: 48px;
-`;
+// const Stats = styled.div`
+//   display: flex;
+//   align-items: center;
+//   height: 48px;
+// `;
 
-const Span = styled.span`
-  margin-left: 20px;
-`;
+// const Span = styled.span`
+//   margin-left: 20px;
+// `;
 
 export default Tweet;

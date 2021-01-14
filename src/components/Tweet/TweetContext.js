@@ -18,6 +18,29 @@ export const TweetProvider = ({ children }) => {
     const [isLiked, setIsLiked] = useState(false);
     const [isRetweeted, setIsRetweeted] = useState(false);
 
+    const handleToggleLike = () => {
+        // (isLiked) ? setIsLiked(false) : setIsLiked(true);
+        if(!isLiked){
+            setIsLiked(true);
+            setNumOfLikes(numOfLikes + 1);
+        } else {
+            setIsLiked(false)
+            setNumOfLikes(numOfLikes - 1);
+        }
+        console.log('handleToggleLike Clicked');
+    }
+
+    const handleToggleRetweet = () => {
+        if(!isRetweeted){
+            setIsRetweeted(true);
+            setNumOfRetweets(numOfRetweets + 1);
+        } else {
+            setIsRetweeted(false);
+            setNumOfRetweets(numOfRetweets - 1);
+        }
+        console.log('handleToggleRetweet Clicked');
+    }
+
 
     return (
         <TweetContext.Provider
@@ -32,11 +55,12 @@ export const TweetProvider = ({ children }) => {
                 numOfRetweets,
                 isLiked,
                 isRetweeted,
+                handleToggleLike,
+                handleToggleRetweet,
             }}
         >
             {children}
             
         </TweetContext.Provider>
     )
-
 }
