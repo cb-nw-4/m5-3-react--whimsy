@@ -21,7 +21,10 @@ const Tweet = ({
     avatarSrc,
     isRetweetedByCurrentUser,
     isLikedByCurrentUser,
-    date,
+    numOfLikes,
+    numOfRetweets,
+    isLiked,
+    isRetweeted,
   } = React.useContext(
     TweetContext
   );
@@ -36,9 +39,13 @@ const Tweet = ({
       <TweetContents>{tweetContents}</TweetContents>
       <Timestamp>{moment().format('MMM Do YYYY, h:mm:ss a')}</Timestamp>
       <Divider />
+      <Stats>
+        <span><strong>{numOfRetweets}</strong> Retweets</span> <Span><strong>{numOfLikes}</strong> Likes</Span>
+      </Stats>
+      <Divider />
       <ActionBar
-        isRetweetedByCurrentUser={isRetweetedByCurrentUser}
-        isLikedByCurrentUser={isLikedByCurrentUser}
+        isRetweetedByCurrentUser={isLiked}
+        isLikedByCurrentUser={isRetweeted}
       />
       <Divider />
     </Wrapper>
@@ -74,6 +81,10 @@ const Stats = styled.div`
   display: flex;
   align-items: center;
   height: 48px;
+`;
+
+const Span = styled.span`
+  margin-left: 20px;
 `;
 
 export default Tweet;

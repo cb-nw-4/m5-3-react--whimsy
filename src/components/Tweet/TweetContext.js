@@ -13,7 +13,11 @@ export const TweetProvider = ({ children }) => {
     const [isRetweetedByCurrentUser, setIsRetweetedByCurrentUser] = useState(false);
     const [isLikedByCurrentUser, setIsLikedByCurrentUser] = useState(false);
 
-    const date = new Date();
+    const [numOfLikes, setNumOfLikes] = useState(460);
+    const [numOfRetweets, setNumOfRetweets] = useState(65);
+    const [isLiked, setIsLiked] = useState(false);
+    const [isRetweeted, setIsRetweeted] = useState(false);
+
 
     return (
         <TweetContext.Provider
@@ -24,7 +28,10 @@ export const TweetProvider = ({ children }) => {
                 avatarSrc,
                 isRetweetedByCurrentUser,
                 isLikedByCurrentUser,
-                date,
+                numOfLikes,
+                numOfRetweets,
+                isLiked,
+                isRetweeted,
             }}
         >
             {children}
