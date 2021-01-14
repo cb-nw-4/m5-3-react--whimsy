@@ -3,10 +3,11 @@ import styled from "styled-components";
 
 import Header from "./Header";
 import ActionBar from "./ActionBar";
+import Stat from "./Stat";
 import { TweetContext } from "../TweetContext";
 
 const Tweet = () => {
-  const { tweetContents, displayName, username, avatarSrc, isRetweetedByCurrentUser, isLikedByCurrentUser, date } = useContext(TweetContext);
+  const { tweetContents, displayName, username, avatarSrc, isRetweetedByCurrentUser, isLikedByCurrentUser, date, numOfLikes, numOfRetweets } = useContext(TweetContext);
   
   return (
     <Wrapper>
@@ -17,6 +18,11 @@ const Tweet = () => {
       />
       <TweetContents>{tweetContents}</TweetContents>
       <Timestamp>{date}</Timestamp>
+      <Divider />
+      <Stats>
+        <Stat><span>{numOfRetweets}</span> Retweets</Stat>
+        <Stat><span>{numOfLikes}</span> Likes</Stat>
+      </Stats>
       <Divider />
       <ActionBar
         isRetweetedByCurrentUser={isRetweetedByCurrentUser}
@@ -53,9 +59,14 @@ const Divider = styled.div`
 `;
 
 const Stats = styled.div`
+  color: rgb(101, 119, 134);
   display: flex;
   align-items: center;
   height: 48px;
+  & span {
+    font-weight: bold;
+    color: black;
+  }
 `;
 
 export default Tweet;
