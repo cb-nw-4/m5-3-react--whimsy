@@ -1,11 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import avatar from "../assets/carmen-sandiego.png";
 import moment from 'moment';
 
 export const TweetContext = React.createContext(null);
 
 export const TweetProvider=({children})=>{
-    const date = moment().format('h:mm a . MMM Do YYYY');
+    const [numOfLikes, setNumOfLikes] = useState(460);
+    const [numOfRetweets, setNumOfRetweets] = useState(65);
+    const date = moment().format('h:mm A - MMM Do YYYY');
     let tweetContents="Where in the world am I?";
     let displayName="Carmen Sandiego ✨";
     let username="carmen-sandiego";
@@ -20,6 +22,8 @@ export const TweetProvider=({children})=>{
         avatarSrc,
         isRetweetedByCurrentUser,
         isLikedByCurrentUser,
-        date
+        date,
+        numOfLikes,
+        numOfRetweets
     }}>{children}</TweetContext.Provider>
 };

@@ -5,7 +5,7 @@ import Tweet from "./Tweet";
 import { TweetContext } from "../components/TweetContext"
 
 const App = () => {
-  const {tweetContents, displayName, username, avatarSrc, isRetweetedByCurrentUser,  isLikedByCurrentUser, date}= React.useContext(TweetContext);
+  const {tweetContents, displayName, username, avatarSrc, isRetweetedByCurrentUser,  isLikedByCurrentUser, date, numOfLikes, numOfRetweets }= React.useContext(TweetContext);
   return (
     <Wrapper>
       <Tweet
@@ -16,6 +16,8 @@ const App = () => {
         avatarSrc={avatarSrc}
         isRetweetedByCurrentUser={isRetweetedByCurrentUser}
         isLikedByCurrentUser={isLikedByCurrentUser}
+        numOfLikes={numOfLikes}
+        numOfRetweets={numOfRetweets}
       />
     </Wrapper>
   );
