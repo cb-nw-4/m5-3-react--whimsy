@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 
 import Heart from "./Heart";
+import PoppingCircle  from './PoppingCircle';
 
 import { TweetContext } from '../TweetContext';
 
@@ -14,6 +15,9 @@ const LikeButton = ({ size = 40 }) => {
   return (
     <Wrapper style={{ width: size, height: size }}>
       <Heart width={heartSize} isToggled={data.isLikedByCurrentUser} />
+      {data.isLikedByCurrentUser && 
+        <PoppingCircle size={size} color="#E790F7" />
+      }
     </Wrapper>
   );
 };
