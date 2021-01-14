@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Header from "./Header";
 import ActionBar from "./ActionBar";
 import Stats from "./Stats"
+import { TweetContext } from "../TweetContext";
 
 const Tweet = ({
   displayName,
