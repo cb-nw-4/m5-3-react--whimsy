@@ -6,6 +6,7 @@ import AnimateRetweet from "./AnimateRetweet";
 import { TweetContext } from "../TweetContext";
 import Action from "./Action";
 import TweetActionIcon from "./TweetActionIcon";
+import Retweet from "../RetweetButton";
 
 const ActionBar = () => {
 
@@ -17,12 +18,17 @@ const ActionBar = () => {
       <Action color="rgb(27, 149, 224)" size={40}>
         <TweetActionIcon kind="reply" />
       </Action>
-      <Action color="rgb(23, 191, 99)" size={40} onClick={handleToggleRetweet}>
+      {/* <Action color="rgb(23, 191, 99)" size={40} onClick={handleToggleRetweet}>
               <TweetActionIcon
               kind="retweet"
               color={isRetweetedByCurrentUser ? "rgb(23, 191, 99)" : undefined}
             />
+      </Action> */}
+
+      <Action color="rgb(23, 191, 99)" size={40} onClick={handleToggleRetweet}>
+        <Retweet />
       </Action>
+
       <Action color="rgb(224, 36, 94)" size={40} onClick={handleToggleLike}>
         <LikeButton  />
       </Action>
