@@ -12,6 +12,16 @@ export const TweetProvider = ({ children }) => {
 
   const date = moment().format('h:mm:ss a, MMMM Do YYYY');
 
+  const handleToggleLike = () => {
+    if (isLiked === true) {
+      setNumOfLikes(numOfLikes + 1);
+      setIsLiked(false);
+    } else {
+      setNumOfLikes(numOfLikes - 1);
+      setIsLiked(true);
+    }
+  }
+
   const data = {
     tweetContents: "Where in the world am I?",
     displayName: "Carmen Sandiego ✨",
@@ -22,6 +32,7 @@ export const TweetProvider = ({ children }) => {
     date: date,
     numOfLikes: numOfLikes,
     numOfRetweets: numOfRetweets,
+    handleToggleLike,
   };
 
   return (
