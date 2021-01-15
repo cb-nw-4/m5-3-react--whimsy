@@ -4,7 +4,7 @@ import styled, { keyframes } from "styled-components";
 import { TweetContext } from "../Tweet/TweetContext";
 import Heart from "./Heart";
 import PoppingCircle from "./PoppingCircle";
-import PopEffect from "./PopEffect";
+import ScaleIn from "./ScaleIn";
 
 const PARTICLE_COLORS = ["#e53935", "#1e88e5", "#43a047", "#fdd835", "#fb8c00"];
 
@@ -19,9 +19,9 @@ const LikeButton = () => {
     <Wrapper style={{ width: size, height: size }}>
     {isLiked && <PoppingCircle  color="#E790F7" /> } 
     {isLiked ? (
-      <PopEffect >
+      <ScaleIn >
  <Heart width={heartSize} isToggled={isLiked} />
- </PopEffect>
+ </ScaleIn>
     ) :  <Heart width={heartSize} isToggled={isLiked} />}
   
      
