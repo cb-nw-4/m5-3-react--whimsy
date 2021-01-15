@@ -39,18 +39,6 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
 `;
-const Circle = styled.div`
- position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 
-// const PoppingEffect = styled(Circle)`
-// width:100px;
-// height:100%;
-// animation: ${turnBlue} 500ms;
-// z-index:2;
-// `;
 
 export default LikeButton;

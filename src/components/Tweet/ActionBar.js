@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-
 import LikeButton from "../LikeButton";
 import Action from "./Action";
-import TweetActionIcon from "./TweetActionIcon";
+import RetweetMain from "../TweetIcon/RetweetMain";
+import TweetActionIcon from "../TweetIcon/TweetActionIcon";
 import { TweetContext } from "../Tweet/TweetContext";
 
 const ActionBar = () => {
@@ -20,10 +20,8 @@ console.log(isLikedByCurrentUser)
         <TweetActionIcon kind="reply" />
       </Action>
       <Action onClick={handleToggleRetweet} color="rgb(23, 191, 99)" size={40}>
-        <TweetActionIcon
-          kind="retweet"
-          color={isRetweetedByCurrentUser ? "rgb(23, 191, 99)" : undefined}
-        />
+        <RetweetMain />
+       
       </Action>
       <Action onClick={handleToggleLike} color="rgb(224, 36, 94)" size={40}>
         <LikeButton   />

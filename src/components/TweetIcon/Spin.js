@@ -27,8 +27,8 @@ const Wrapper = styled.div`
   height: 100%;
 
 `;
-const PoppingCircle = ({ color }) => {
-  return <Wrapper style={{ backgroundColor: color }}></Wrapper>;
+const Spin = ({ color }) => {
+  return <Wrapper style={{ backgroundColor: "blue"}}></Wrapper>;
 };
 
-export default PoppingCircle;
+export default Spin;
