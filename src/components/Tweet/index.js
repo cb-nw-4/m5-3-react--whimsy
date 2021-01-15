@@ -35,7 +35,6 @@ const Tweet = ({
       <Divider />
       <ActionBar
         isRetweetedByCurrentUser={isRetweetedByCurrentUser}
-        isLikedByCurrentUser={isLikedByCurrentUser}
       />
       <Divider />
     </Wrapper>

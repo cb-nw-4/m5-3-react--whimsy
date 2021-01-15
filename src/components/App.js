@@ -15,7 +15,6 @@ const App = () => {
         username={username}
         avatarSrc={avatarSrc}
         isRetweetedByCurrentUser={isRetweetedByCurrentUser}
-        isLikedByCurrentUser={isLikedByCurrentUser}
         numOfLikes={numOfLikes}
         numOfRetweets={numOfRetweets}
       />
