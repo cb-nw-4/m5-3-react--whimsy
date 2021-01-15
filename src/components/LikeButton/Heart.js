@@ -11,7 +11,7 @@ const Heart = ({ width, isToggled }) => (
   <Svg
     viewBox="0 0 24 24"
     style={{
-      width,
+      width
     }}
   >
     <path
@@ -25,6 +25,7 @@ const Svg = styled.svg`
   display: block;
   backface-visibility: hidden;
   fill: none;
+  position: absolute; 
 `;
 
 export default Heart;
