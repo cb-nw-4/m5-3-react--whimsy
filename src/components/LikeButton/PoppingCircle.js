@@ -26,7 +26,6 @@ const Circle = styled.div`
     border-radius: 50%;
     animation: ${scale} 300ms forwards, ${fade} 500ms ease-out forwards;
     position: absolute;
-    z-index: 0;
 `;
 
 const PoppingCircle = ({ size, color }) => {
