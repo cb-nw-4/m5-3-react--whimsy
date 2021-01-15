@@ -18,7 +18,7 @@ const AnimateRetweet = ({children}) => {
 
         config: {
             tension: 200,
-            friction: 10,
+            friction: 2,
         },
     });
     return (<animated.div style={style}>
