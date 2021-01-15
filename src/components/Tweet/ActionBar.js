@@ -7,7 +7,7 @@ import TweetActionIcon from "./TweetActionIcon";
 import { TweetContext } from "../TweetContext";
 
 const ActionBar = ({ isRetweetedByCurrentUser, isLikedByCurrentUser }) => {
-  console.log(isRetweetedByCurrentUser)
+  //console.log(isRetweetedByCurrentUser)
   const { handleToggleLike, handleToggleRetweet }= React.useContext(TweetContext);
   return (
     <Wrapper>
