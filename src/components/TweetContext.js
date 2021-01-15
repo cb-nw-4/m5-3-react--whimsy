@@ -47,9 +47,7 @@ export const TweetProvider =({children}) =>{
                 date,
                 numOfLikes,
                 numOfRetweets,
-                isLiked, 
                 handleToggleLike,
-                isRetweeted,
                 handleToggleRetweet
                 }}
     >
