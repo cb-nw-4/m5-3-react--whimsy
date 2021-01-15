@@ -21,7 +21,7 @@ const ScaleIn = ({children}) => {
     });
     return (<animated.div style={style}>
         {children}
-    </animated.div>  );
+    </animated.div>);
 }
 
 

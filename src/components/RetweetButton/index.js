@@ -6,6 +6,7 @@ import Retweet from "./Retweet";
 import PoppingCircle from "../LikeButton/PoppingCircle";
 import AnimateRetweet from "./AnimateRetweet";
 
+
 const PARTICLE_COLORS = ["#e53935", "#1e88e5", "#43a047", "#fdd835", "#fb8c00"];
 
 const RetweetButton = ({ size = 40 }) => {
@@ -25,8 +26,8 @@ const RetweetButton = ({ size = 40 }) => {
             <Retweet width={RetweetSize} isToggled={isRetweetedByCurrentUser} />
         </AnimateRetweet>
     ) : <Retweet width={RetweetSize} isToggled={isRetweetedByCurrentUser} /> }
-    
 
+    
     </Wrapper>
 );
 };

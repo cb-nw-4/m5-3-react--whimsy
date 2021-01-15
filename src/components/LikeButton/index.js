@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { TweetContext } from "../TweetContext";
+import ConffettiPiece from "./ConfettiPiece";
 
 import Heart from "./Heart";
 import PoppingCircle from "./PoppingCircle";
 import ScaleIn from "./ScaleIn";
+import {range, sample, random} from "../../../src/utils";
 
 const PARTICLE_COLORS = ["#e53935", "#1e88e5", "#43a047", "#fdd835", "#fb8c00"];
 
@@ -26,6 +28,13 @@ const LikeButton = ({ size = 40 }) => {
       </ScaleIn>
       ) : <Heart width={heartSize} isToggled={isLikedByCurrentUser} /> }
       
+      {isLikedByCurrentUser && range(12).map((i) => (
+        <ConffettiPiece 
+          key={i} 
+          angle={360 * (i / 12)}
+          distance={random(0, 40)}
+          color={sample(PARTICLE_COLORS)}/>
+      ))}
       
     </Wrapper>
   );
