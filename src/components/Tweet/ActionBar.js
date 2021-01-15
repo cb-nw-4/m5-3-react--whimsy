@@ -26,7 +26,7 @@ console.log(isLikedByCurrentUser)
         />
       </Action>
       <Action onClick={handleToggleLike} color="rgb(224, 36, 94)" size={40}>
-        <LikeButton isLiked={isLikedByCurrentUser}  />
+        <LikeButton   />
       </Action>
       <Action color="rgb(27, 149, 224)" size={40}>
         <TweetActionIcon kind="share" />
