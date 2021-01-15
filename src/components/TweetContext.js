@@ -14,11 +14,21 @@ export const TweetProvider = ({ children }) => {
 
   const handleToggleLike = () => {
     if (isLiked === true) {
-      setNumOfLikes(numOfLikes + 1);
+      setNumOfLikes(numOfLikes - 1);
       setIsLiked(false);
     } else {
-      setNumOfLikes(numOfLikes - 1);
+      setNumOfLikes(numOfLikes + 1);
       setIsLiked(true);
+    }
+  }
+
+  const handleRetweet = () => {
+    if (isRetweeted === true) {
+      setNumOfRetweets(numOfRetweets - 1);
+      setIsRetweeted(false);
+    } else {
+      setNumOfRetweets(numOfRetweets + 1);
+      setIsRetweeted(true);
     }
   }
 
@@ -33,6 +43,7 @@ export const TweetProvider = ({ children }) => {
     numOfLikes: numOfLikes,
     numOfRetweets: numOfRetweets,
     handleToggleLike,
+    handleRetweet,
   };
 
   return (
