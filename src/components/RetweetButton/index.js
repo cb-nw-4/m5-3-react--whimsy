@@ -5,6 +5,8 @@ import { TweetContext } from "../TweetContext";
 import Retweet from "./Retweet";
 import PoppingCircle from "../LikeButton/PoppingCircle";
 import AnimateRetweet from "./AnimateRetweet";
+import ConffettiPiece from "../LikeButton/ConfettiPiece";
+import {range, sample, random} from "../../../src/utils";
 
 
 const PARTICLE_COLORS = ["#e53935", "#1e88e5", "#43a047", "#fdd835", "#fb8c00"];
@@ -26,6 +28,14 @@ const RetweetButton = ({ size = 40 }) => {
             <Retweet width={RetweetSize} isToggled={isRetweetedByCurrentUser} />
         </AnimateRetweet>
     ) : <Retweet width={RetweetSize} isToggled={isRetweetedByCurrentUser} /> }
+
+    {isRetweetedByCurrentUser && range(12).map((i) => (
+        <ConffettiPiece 
+            key={i} 
+            angle={360 * (i / 12)}
+            distance={random(0, 40)}
+            color={sample(PARTICLE_COLORS)}/>
+    ))}
 
     
     </Wrapper>
