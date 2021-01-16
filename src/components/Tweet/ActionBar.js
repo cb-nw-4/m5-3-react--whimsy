@@ -1,24 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 
 import LikeButton from "../LikeButton";
 import Action from "./Action";
 import TweetActionIcon from "./TweetActionIcon";
 
-const ActionBar = ({ isRetweetedByCurrentUser, isLikedByCurrentUser }) => {
+import { TweetContext } from '../Tweet/TweetContext';
+
+
+const ActionBar = () => {
+  const data = useContext(TweetContext);
+
   return (
     <Wrapper>
       <Action color="rgb(27, 149, 224)" size={40}>
         <TweetActionIcon kind="reply" />
       </Action>
-      <Action color="rgb(23, 191, 99)" size={40}>
+      <Action color="rgb(23, 191, 99)" size={40} onClick={data.handleToggleRetweet}>
         <TweetActionIcon
           kind="retweet"
-          color={isRetweetedByCurrentUser ? "rgb(23, 191, 99)" : undefined}
+          color={data.isRetweetedByCurrentUser ? "rgb(23, 191, 99)" : undefined}
         />
       </Action>
-      <Action color="rgb(224, 36, 94)" size={40}>
-        <LikeButton isLiked={isLikedByCurrentUser} />
+      <Action color="rgb(224, 36, 94)" size={40} onClick={data.handleToggleLike}>
+        <LikeButton />
       </Action>
       <Action color="rgb(27, 149, 224)" size={40}>
         <TweetActionIcon kind="share" />
