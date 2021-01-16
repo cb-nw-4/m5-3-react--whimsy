@@ -11,11 +11,12 @@ export const TweetProvider = ({ children }) => {
     const [username, setUsername] = useState("carmen-sandiego");
     const [avatarSrc, setAvatarSrc] = useState(avatar);
     const [isRetweetedByCurrentUser, setIsRetweetedByCurrentUser] = useState(false);
+    const [isLiked, setIsLiked] = useState(false);//To Change
     const [isLikedByCurrentUser, setIsLikedByCurrentUser] = useState(false);
 
     const [numOfLikes, setNumOfLikes] = useState(460);
     const [numOfRetweets, setNumOfRetweets] = useState(65);
-    const [isLiked, setIsLiked] = useState(false);
+    // const [isLiked, setIsLiked] = useState(false);
     const [isRetweeted, setIsRetweeted] = useState(false);
 
     const handleToggleLike = () => {
@@ -23,9 +24,11 @@ export const TweetProvider = ({ children }) => {
         if(!isLiked){
             setIsLiked(true);
             setNumOfLikes(numOfLikes + 1);
+            setIsLikedByCurrentUser(true);
         } else {
             setIsLiked(false)
             setNumOfLikes(numOfLikes - 1);
+            setIsLikedByCurrentUser(false);
         }
         console.log('handleToggleLike Clicked');
     }
@@ -34,12 +37,15 @@ export const TweetProvider = ({ children }) => {
         if(!isRetweeted){
             setIsRetweeted(true);
             setNumOfRetweets(numOfRetweets + 1);
+            setIsRetweetedByCurrentUser(true);
         } else {
             setIsRetweeted(false);
             setNumOfRetweets(numOfRetweets - 1);
+            setIsRetweetedByCurrentUser(true);
         }
         console.log('handleToggleRetweet Clicked');
     }
+
 
 
     return (
