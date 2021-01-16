@@ -6,8 +6,8 @@ const ScaleIn = ({ children }) => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        position: "absolute",
         zIndex: 1,
+        position: "absolute",
         transform: "scale(1)",
         from: {
           transform: "scale(0)",
