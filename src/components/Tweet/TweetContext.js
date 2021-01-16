@@ -39,6 +39,7 @@ const TweetProvider =({children})=>{
             numOfRetweets,
             handleToggleLike,
             handleToggleRetweet,
+            isLiked,
         }}
         >
             {children}
