@@ -1,35 +1,38 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import { useSpring, animated} from 'react-spring';
 
 const PoppingCircle = ({ size, color }) => {
-    const style = useSpring({
-        //
-        // opacity: 1, from: {opacity: 0}
-    });
 
     return (
-        <PoppingStyle style={style}>
+        <PoppingStyle style={{
+            background: color,
+            position: 'absolute',
+            width: size,
+            height: size,
+            borderRadius: '50%',
+        }}>
         </PoppingStyle>
     );
 }
 
-const PoppingKeyframe = keyframes`
-    /* from {
-    color: inherit;
+const scale = keyframes`
+    from {
+    transform: scale(0);
     }
     to {
-    color: red;
-    } */
+    transform: scale(1);
+    }
 `;
-
-const PoppingStyle = styled(animated.button)`
-    /* animation: ${PoppingKeyframe} 1000ms; */
-    background: black;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
+const fade = keyframes`
+    from {
+    opacity: 1;
+    }
+    to {
+    opacity: 0;
+    }
+`;
+const PoppingStyle = styled.div`
+    animation: ${fade} forwards 1000ms, ${scale} 500ms forwards;
 `
 
 
