@@ -2,21 +2,15 @@ import React from "react";
 import styled from "styled-components";
 
 import Tweet from "./Tweet";
-
-import avatar from "../assets/carmen-sandiego.png";
+import { TweetProvider } from './TweetContext';
 
 const App = () => {
   return (
+    <TweetProvider>
     <Wrapper>
-      <Tweet
-        tweetContents="Where in the world am I?"
-        displayName="Carmen Sandiego ✨"
-        username="carmen-sandiego"
-        avatarSrc={avatar}
-        isRetweetedByCurrentUser={false}
-        isLikedByCurrentUser={false}
-      />
+      <Tweet />
     </Wrapper>
+    </TweetProvider>
   );
 };
 
@@ -24,7 +18,8 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 99vh;
+  width: 99vw;
   background: #eee;
 `;
 
