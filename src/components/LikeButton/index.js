@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import styled from "styled-components";
 
 import Heart from "./Heart";
@@ -15,6 +15,17 @@ const LikeButton = ({ size = 40 }) => {
   const data = useContext(TweetContext);
   const heartSize = size * 0.6;
 
+  const Confetti = useRef(
+    range(12).map((i) => (
+      <ConfettiPiece 
+        key={i}
+        angle={360 * (i / 12)}
+        distance={random(5, 25)}
+        color={sample(PARTICLE_COLORS)}
+      />
+    ))
+  )
+
   return (
     <Wrapper style={{ width: size, height: size }}>
       {data.isLikedByCurrentUser ? (
@@ -27,14 +38,7 @@ const LikeButton = ({ size = 40 }) => {
       {data.isLikedByCurrentUser && 
         <>
         <div style={{ position: 'absolute' }}>
-        {range(12).map((i) => (
-          <ConfettiPiece 
-            key={i}
-            angle={360 * (i / 12)}
-            distance={random(5, 25)}
-            color={sample(PARTICLE_COLORS)}
-          />
-        ))}
+        {Confetti.current}
         </div>
         <PoppingCircle size={size} color="#E790F7" />
         </>
