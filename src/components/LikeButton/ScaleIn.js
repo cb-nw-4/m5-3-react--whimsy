@@ -4,6 +4,7 @@ import { useSpring, animated } from 'react-spring';
 const ScaleIn = ({ children }) => {
   const style = useSpring({
     display: 'flex',
+    position: 'absolute',
     justifyContent: 'center',
     alignItems: 'center',
     transform: 'scale(0.999)',
@@ -11,7 +12,7 @@ const ScaleIn = ({ children }) => {
       transform: 'scale(0)'
     },
     config: {
-      tension: 600,
+      tension: 700,
       friction: 20
     }
   });
