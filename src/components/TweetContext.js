@@ -24,9 +24,21 @@ export const TweetProvider = ({children}) => {
     setIsRetweeted(!isRetweeted)
     isRetweeted == false ? setNumOfRetweets(numOfRetweets + 1) : setNumOfRetweets(numOfRetweets - 1)
   }
+  console.log(isLiked)
   return (
     <TweetContext.Provider value={{
-      tweetContents, displayName, username, avatarSrc, isRetweetedByCurrentUser, isLikedByCurrentUser, date, numLikes, numOfRetweets, handleToggleLike, handleToggleRetweet
+      tweetContents,
+       displayName,
+        username,
+         avatarSrc,
+          isRetweetedByCurrentUser,
+           isLikedByCurrentUser,
+            date,
+             numLikes,
+              numOfRetweets,
+               handleToggleLike,
+                handleToggleRetweet,
+                isLiked
     }}>
       {children}
     </TweetContext.Provider>
