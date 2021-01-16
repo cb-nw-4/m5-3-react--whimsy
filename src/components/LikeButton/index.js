@@ -4,6 +4,8 @@ import styled from "styled-components";
 import Heart from "./Heart";
 import PoppingCircle  from './PoppingCircle';
 import ScaleIn from './ScaleIn';
+import ConfettiPiece from './ConfettiPiece';
+import { range, sample, random } from '../../utils';
 
 import { TweetContext } from '../TweetContext';
 
@@ -23,7 +25,19 @@ const LikeButton = ({ size = 40 }) => {
         <Heart width={heartSize} isToggled={data.isLikedByCurrentUser} />
       )}
       {data.isLikedByCurrentUser && 
+        <>
+        <div style={{ position: 'absolute' }}>
+        {range(12).map((i) => (
+          <ConfettiPiece 
+            key={i}
+            angle={360 * (i / 12)}
+            distance={random(5, 25)}
+            color={sample(PARTICLE_COLORS)}
+          />
+        ))}
+        </div>
         <PoppingCircle size={size} color="#E790F7" />
+        </>
       }
     </Wrapper>
   );
