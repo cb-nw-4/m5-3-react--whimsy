@@ -1,17 +1,11 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-
+import {TweetContext} from '../TweetContext'
 import Header from "./Header";
 import ActionBar from "./ActionBar";
 
-const Tweet = ({
-  displayName,
-  username,
-  avatarSrc,
-  tweetContents,
-  isRetweetedByCurrentUser,
-  isLikedByCurrentUser,
-}) => {
+const Tweet = () => {
+  const {tweetContents, displayName, username, avatarSrc, isRetweetedByCurrentUser, isLikedByCurrentUser, date, numLikes, numOfRetweets} = useContext(TweetContext)
   return (
     <Wrapper>
       <Header
@@ -20,7 +14,18 @@ const Tweet = ({
         avatarSrc={avatarSrc}
       />
       <TweetContents>{tweetContents}</TweetContents>
+      <Timestamp>{date}</Timestamp>
       <Divider />
+        <Stats>
+          <Bolder>
+          {numOfRetweets}
+            </Bolder> Retweets 
+            
+          <Boldest>
+          {numLikes} 
+            </Boldest>Likes
+        </Stats>
+      <Divider/>
       <ActionBar
         isRetweetedByCurrentUser={isRetweetedByCurrentUser}
         isLikedByCurrentUser={isLikedByCurrentUser}
@@ -29,6 +34,17 @@ const Tweet = ({
     </Wrapper>
   );
 };
+
+const Bolder = styled.span`
+  font-weight: bolder;
+  padding-right: 5px;
+`;
+
+const Boldest = styled.span`
+  font-weight: bolder;
+  padding-left: 15px;
+  padding-right: 5px;
+`;
 
 const Wrapper = styled.div`
   background: white;
