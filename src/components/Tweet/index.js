@@ -1,30 +1,25 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
-
+import {TweetContext} from "./TweetContext";
 import Header from "./Header";
 import ActionBar from "./ActionBar";
+import Stats from "./Stats";
 
-const Tweet = ({
-  displayName,
-  username,
-  avatarSrc,
-  tweetContents,
-  isRetweetedByCurrentUser,
-  isLikedByCurrentUser,
-}) => {
+const Tweet = ({}) => {
+  const {tweetContents,date,numOfLikes,numOfRetweets}= useContext(TweetContext);
   return (
     <Wrapper>
-      <Header
-        displayName={displayName}
-        username={username}
-        avatarSrc={avatarSrc}
-      />
+      <Header/>
+      
       <TweetContents>{tweetContents}</TweetContents>
+      <Timestamp>{date}</Timestamp>
       <Divider />
-      <ActionBar
-        isRetweetedByCurrentUser={isRetweetedByCurrentUser}
-        isLikedByCurrentUser={isLikedByCurrentUser}
-      />
+      <StatsDiv>
+        <Stats num={numOfRetweets}>Retweets</Stats>
+        <Stats num={numOfLikes}>Likes</Stats>
+      </StatsDiv>
+      <Divider />
+      <ActionBar/>
       <Divider />
     </Wrapper>
   );
@@ -55,7 +50,7 @@ const Divider = styled.div`
   background: rgb(230, 236, 240);
 `;
 
-const Stats = styled.div`
+const StatsDiv = styled.div`
   display: flex;
   align-items: center;
   height: 48px;
