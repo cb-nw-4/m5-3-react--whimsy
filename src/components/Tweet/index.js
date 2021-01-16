@@ -8,9 +8,7 @@ import Stats from "./Stats";
 import { TweetContext } from "../TweetContext";
 
 const Tweet = () => {
-  const { tweetContents, date} = useContext(
-    TweetContext
-  );
+  const { tweetContents, date } = useContext(TweetContext);
   return (
     <Wrapper>
       <Header />
@@ -49,6 +47,5 @@ const Divider = styled.div`
   height: 1px;
   background: rgb(230, 236, 240);
 `;
-
 
 export default Tweet;

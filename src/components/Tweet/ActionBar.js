@@ -8,7 +8,12 @@ import TweetActionIcon from "./TweetActionIcon";
 import { TweetContext } from "../TweetContext";
 
 const ActionBar = () => {
-  const { isRetweetedByCurrentUser, isLikedByCurrentUser, handleToggleLike, handleRetweet } = useContext(TweetContext);
+  const {
+    isRetweetedByCurrentUser,
+    isLikedByCurrentUser,
+    handleToggleLike,
+    handleRetweet,
+  } = useContext(TweetContext);
   return (
     <Wrapper>
       <Action color="rgb(27, 149, 224)" size={40}>
@@ -18,7 +23,6 @@ const ActionBar = () => {
         <TweetActionIcon
           kind="retweet"
           color={isRetweetedByCurrentUser ? "rgb(23, 191, 99)" : undefined}
-          
         />
       </Action>
       <Action color="rgb(224, 36, 94)" size={40} onClick={handleToggleLike}>

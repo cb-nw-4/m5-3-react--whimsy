@@ -4,17 +4,12 @@ import { TweetProvider } from "./TweetContext";
 import styled from "styled-components";
 import Tweet from "./Tweet";
 
-
-
-
-
-
 const App = () => {
   return (
     <TweetProvider>
-    <Wrapper>
-      <Tweet/>
-    </Wrapper>
+      <Wrapper>
+        <Tweet />
+      </Wrapper>
     </TweetProvider>
   );
 };
