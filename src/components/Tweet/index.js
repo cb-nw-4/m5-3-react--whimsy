@@ -3,15 +3,33 @@ import styled from "styled-components";
 
 import Header from "./Header";
 import ActionBar from "./ActionBar";
+import { TweetContext } from './TweetContext';
+import moment from "moment";
+import Stat from './Stat';
 
 const Tweet = ({
-  displayName,
-  username,
-  avatarSrc,
-  tweetContents,
-  isRetweetedByCurrentUser,
-  isLikedByCurrentUser,
+  // displayName,
+  // username,
+  // avatarSrc,
+  // tweetContents,
+  // isRetweetedByCurrentUser,
+  // isLikedByCurrentUser,
 }) => {
+  const {
+    tweetContents,
+    displayName,
+    username,
+    avatarSrc,
+    isRetweetedByCurrentUser,
+    isLikedByCurrentUser,
+    numOfLikes,
+    numOfRetweets,
+    isLiked,
+    isRetweeted,
+  } = React.useContext(
+    TweetContext
+  );
+
   return (
     <Wrapper>
       <Header
@@ -20,9 +38,12 @@ const Tweet = ({
         avatarSrc={avatarSrc}
       />
       <TweetContents>{tweetContents}</TweetContents>
+      <Timestamp>{moment().format('MMM Do YYYY, h:mm:ss a')}</Timestamp>
+      <Divider />
+      <Stat/>
       <Divider />
       <ActionBar
-        isRetweetedByCurrentUser={isRetweetedByCurrentUser}
+        isRetweetedByCurrentUser={isRetweeted}
         isLikedByCurrentUser={isLikedByCurrentUser}
       />
       <Divider />
@@ -55,10 +76,14 @@ const Divider = styled.div`
   background: rgb(230, 236, 240);
 `;
 
-const Stats = styled.div`
-  display: flex;
-  align-items: center;
-  height: 48px;
-`;
+// const Stats = styled.div`
+//   display: flex;
+//   align-items: center;
+//   height: 48px;
+// `;
+
+// const Span = styled.span`
+//   margin-left: 20px;
+// `;
 
 export default Tweet;
