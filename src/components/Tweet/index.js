@@ -6,15 +6,11 @@ import ActionBar from "./ActionBar";
 import {TweetContext} from "./TweetContext";
 
 const Tweet = () => {
-  const {tweetData, date, actionData, setActionData} = useContext(TweetContext);
+  const {tweetData, date, actionData} = useContext(TweetContext);
 
   return (
     <Wrapper>
-      <Header
-        displayName={tweetData.displayName}
-        username={tweetData.username}
-        avatarSrc={tweetData.avatarSrc}
-      />
+      <Header/>
       <TweetContents>{tweetData.tweetContents}</TweetContents>
       <Timestamp>{date}</Timestamp>
       <Divider />
@@ -22,10 +18,7 @@ const Tweet = () => {
         <Number>{actionData.numOfRetweets}</Number> Retweets 
         <Likes><Number>{actionData.numOfLikes}</Number> Likes</Likes></Stats>
       <Divider/>
-      <ActionBar
-        isRetweetedByCurrentUser={actionData.isRetweeted}
-        isLikedByCurrentUser={actionData.isLiked}
-      />
+      <ActionBar/>
       <Divider />
     </Wrapper>
   );
