@@ -3,28 +3,22 @@ import styled from "styled-components";
 
 import Header from "./Header";
 import ActionBar from "./ActionBar";
+import {TweetContext} from "./TweetContext";
 
-const Tweet = ({
-  displayName,
-  username,
-  avatarSrc,
-  tweetContents,
-  isRetweetedByCurrentUser,
-  isLikedByCurrentUser,
-}) => {
+const Tweet = () => {
+  const {tweetData, date, actionData} = useContext(TweetContext);
+
   return (
     <Wrapper>
-      <Header
-        displayName={displayName}
-        username={username}
-        avatarSrc={avatarSrc}
-      />
-      <TweetContents>{tweetContents}</TweetContents>
+      <Header/>
+      <TweetContents>{tweetData.tweetContents}</TweetContents>
+      <Timestamp>{date}</Timestamp>
       <Divider />
-      <ActionBar
-        isRetweetedByCurrentUser={isRetweetedByCurrentUser}
-        isLikedByCurrentUser={isLikedByCurrentUser}
-      />
+      <Stats>
+        <Number>{actionData.numOfRetweets}</Number> Retweets 
+        <Likes><Number>{actionData.numOfLikes}</Number> Likes</Likes></Stats>
+      <Divider/>
+      <ActionBar/>
       <Divider />
     </Wrapper>
   );
@@ -59,6 +53,19 @@ const Stats = styled.div`
   display: flex;
   align-items: center;
   height: 48px;
+  color: rgb(101, 119, 134);
+  font-size: 16px;
+`;
+
+const Number = styled.div`
+  font-weight: bold;
+  color: black;
+  padding-right: 6px;
+`;
+
+const Likes = styled.div`
+  padding-left: 30px;
+  display: flex;
 `;
 
 export default Tweet;
