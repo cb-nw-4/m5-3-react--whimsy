@@ -32,7 +32,7 @@ const fade = keyframes`
     }
 `;
 const PoppingStyle = styled.div`
-    animation: ${fade} forwards 1000ms, ${scale} 500ms forwards;
+    animation: ${fade} 1500ms forwards, ${scale} 500ms forwards;
 `
 
 
