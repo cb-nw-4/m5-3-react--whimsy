@@ -2,8 +2,6 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 
 import Tweet from "./Tweet";
-
-import avatar from "../assets/carmen-sandiego.png";
 import {TweetProvider} from "../components/Tweet/TweetContext";
 
 const App = () => {
@@ -11,14 +9,7 @@ const App = () => {
   return (
     <Wrapper>
     <TweetProvider>
-      <Tweet
-        tweetContents="Where in the world am I?"
-        displayName="Carmen Sandiego ✨"
-        username="carmen-sandiego"
-        avatarSrc={avatar}
-        isRetweetedByCurrentUser={false}
-        isLikedByCurrentUser={false}
-      />
+      <Tweet/>
     </TweetProvider>
     </Wrapper>
   );
