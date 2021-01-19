@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import Header from "./Header";
 import ActionBar from "./ActionBar";
+import {TweetContext} from "./TweetContext";
 
 const Tweet = ({
   displayName,
@@ -12,18 +13,20 @@ const Tweet = ({
   isRetweetedByCurrentUser,
   isLikedByCurrentUser,
 }) => {
+  const tweetData = useContext(TweetContext);
+
   return (
     <Wrapper>
       <Header
-        displayName={displayName}
-        username={username}
-        avatarSrc={avatarSrc}
+        displayName={tweetData.displayName}
+        username={tweetData.username}
+        avatarSrc={tweetData.avatarSrc}
       />
-      <TweetContents>{tweetContents}</TweetContents>
+      <TweetContents>{tweetData.tweetContents}</TweetContents>
       <Divider />
       <ActionBar
-        isRetweetedByCurrentUser={isRetweetedByCurrentUser}
-        isLikedByCurrentUser={isLikedByCurrentUser}
+        isRetweetedByCurrentUser={tweetData.isRetweetedByCurrentUser}
+        isLikedByCurrentUser={tweetData.isLikedByCurrentUser}
       />
       <Divider />
     </Wrapper>
